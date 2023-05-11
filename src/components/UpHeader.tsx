@@ -6,7 +6,7 @@ export function UpHeader() {
     return(
         <div className={"flex w-full h-32 items-center justify-between"}>
             <div>
-                <a className={"text-6xl font-bold"}>ПУТЬ</a>
+                <a className={"text-6xl  font-bold"}>ПУТЬ</a>
             </div>
             <div className={""}>
                 <a className={loginBtnStyle}>войти</a>
