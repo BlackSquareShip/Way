@@ -8,14 +8,15 @@ import { RegistrationPage } from './components/Modals/RegistrationPage';
 
 function App() {
   const [loginModal, setLoginModal] = useState(false)
+  const [RegistrationModal, setRegistrationModal] = useState(false)
 
   return (
     <div>
-        <Header openModal={() => setLoginModal(true)}/>
+        <Header openLoginModal={() => setLoginModal(true)} openRegistrationModal={() => setRegistrationModal(true)}/>
         <Intro/>
         <Footer/>
         {loginModal && <LoginPage onClose={() => setLoginModal(false)}/>}
-        {/* {loginModal && <RegistrationPage onClose={() => setLoginModal(false)}/>} */}
+        {RegistrationModal && <RegistrationPage onClose={() => setRegistrationModal(false)}/>}
     </div>
   );
 }
