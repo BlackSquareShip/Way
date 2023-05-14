@@ -29,3 +29,21 @@ code {
 /*.introBg{*/
 /*  background-image: url("../public/back.webp");*/
 /*}*/
+
+/*.background-animate {*/
+/*  background-size: 200%;*/
+
+/*  -webkit-animation: AnimationName 30s ease infinite;*/
+/*  -moz-animation: AnimationName 30s ease infinite;*/
+/*  animation: AnimationName 30s ease infinite;*/
+/*}*/
+
+/*@keyframes AnimationName {*/
+/*  0%,*/
+/*  100% {*/
+/*    background-position: 0% 50%;*/
+/*  }*/
+/*  50% {*/
+/*    background-position: 100% 50%;*/
+/*  }*/
+/*}*/
