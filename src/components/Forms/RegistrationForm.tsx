@@ -9,16 +9,21 @@ const User = {
     password: ""
 }
 
-export function RegistrationForm() {
+interface RegistrationFormProps{
+    onClose: () => void
+}
+
+export function RegistrationForm({onClose} : RegistrationFormProps) {
     const [formData, setFormData] = useState<IUser>(User);
     console.log(formData)
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
 
-        // const response = axios.post<IUser>("http://localhost:3030/users/createUser", state).then()
-
+        const response = axios.post<IUser>("http://localhost:3030/users/createUser", formData).then()
+        //
         // onCreate((await response).data)
+        onClose();
     };
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>, field: string) => {
@@ -34,17 +39,17 @@ export function RegistrationForm() {
             <ModalInput inputId="fioField" name='fio' value={formData.fio} labelText="ФИО" type="text"
                         handleChange={handleChange}/>
 
-            {/*<ModalInput inputId="loginField" inputType="text" labelText="Email" name="email"*/}
-            {/*            handleChange={handleChange}/>*/}
+            <ModalInput inputId="loginField" name="email" value={formData.email} labelText="Email"  type="text"
+                        handleChange={handleChange}/>
 
-            {/*<ModalInput inputId="passwordField" inputType="password" labelText="Пароль" name="password"*/}
-            {/*            handleChange={handleChange}/>*/}
+            <ModalInput inputId="passwordField" name="password" value={formData.password} labelText="Пароль" type="password"
+                        handleChange={handleChange}/>
 
-            {/*<ModalInput inputId="passwordConfirmField" inputType="password" labelText="Подтвердите пароль" name=""*/}
-            {/*            handleChange={handleChange}/>*/}
+            <ModalInput inputId="passwordConfirmField" name="" value={""} labelText="Подтвердите пароль" type="password"
+                        handleChange={handleChange}/>
 
             <input type="submit" value="Зарегистрироваться"
-                   className="cursor-pointer w-1/2 m-auto text-gray-700 font-bold text-2xl bg-[#ECECEC] h-16 rounded-2xl border-[4px] border-black
+                   className="cursor-pointer px-3 mx-auto my-5 text-gray-700 font-bold text-xl bg-[#ECECEC] h-16 rounded-2xl border-[4px] border-black
                 hover:bg-white hover:text-black"/>
             <a className="text-black m-auto mb-2" href="">У меня уже есть аккаунт</a>
         </form>
